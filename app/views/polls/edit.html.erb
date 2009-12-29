@@ -1,0 +1,6 @@
+<%= render :partial => 'summary', :locals => { :poll => @poll} %>
+<% form_for(@poll) do |f| %>
+   <%= f.submit 'Update' %>
+<% end %>
+
+<%= link_to 'Back', polls_path %>

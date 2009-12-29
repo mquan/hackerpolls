@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>HackerPolls - <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'application' %>
+  <%= javascript_include_tag 'jquery-1.3.2.min', 'highcharts', 'excanvas.compiled' %>
+  <h1><a href="/" style="text-decoration: none">HackerPolls</a></h1>
+</head>
+<body>
+
+<p style="color: green"><%= flash[:notice] %></p>
+
+<div id="content" style="min-height: 500px">
+<%= yield %>
+</div>
+
+<div id="footer" style="text-align: center; background: #ddd; width: 100%">
+<a href="http://news.ycombinator.com/">data from Hacker News</a> |
+<a href="http://www.highcharts.com/">highcharts</a> |
+<a href="github.com">source on github</a>
+</div>
+</body>
+</html>

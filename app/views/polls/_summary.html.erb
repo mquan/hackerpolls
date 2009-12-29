@@ -1,0 +1,8 @@
+<div style="width: 600px">
+<h2><%= link_to poll.title, poll %></h2>
+<b>Score:</b> <%= poll.score %> |
+<b>Votes:</b> <%= poll.choices.map(&:votes).sum %> |
+<%= link_to 'link', poll.url %> |
+<%= link_to 'updated', edit_poll_path(poll) %> <%=h time_ago_in_words(poll.updated_at) %> ago
+<hr/>
+</div>

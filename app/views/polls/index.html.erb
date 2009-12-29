@@ -1,0 +1,8 @@
+<%= link_to 'create new poll', new_poll_path %>
+
+<% @polls.each do |poll| %>
+	<%= render :partial => 'summary', :locals => { :poll => poll } %>
+<% end %>
+
+<%= will_paginate @polls %>
+

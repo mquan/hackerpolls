@@ -1,0 +1,39 @@
+<%= render :partial => 'summary', :locals => { :poll => @poll } %>
+<%= link_to 'Horizontal', @poll %> 
+<%= link_to 'Vertical', {:action => 'show', :id => @poll.id, :chart => 'vertical' }%>
+<div id="chart-container" style="width: 800px; height: 450px"></div>
+<script>
+$(document).ready(function() {
+	var total_votes = <%= @results.sum %>;
+	var vertical = <%= (params[:chart]=='vertical') || false %>;
+	var angle = -45;
+	if(vertical) {
+		angle = 0;
+	}
+	var chart1 = new Highcharts.Chart({
+    chart: {
+		renderTo: 'chart-container',
+      		defaultSeriesType: 'column',
+			inverted: vertical,
+			margin: [50, 50, 100, 150]
+        },
+        title: { text: "<%= @poll.title %>" },
+        xAxis: { 
+			categories: <%= @categories.to_json %>,
+	 		labels: { rotation: angle, align: 'right' }
+		},
+        yAxis: {
+			min: 0,
+            title: { text: 'votes' }
+        },
+		tooltip: {
+			formatter: function() {
+				return '<b>'+ this.x + ':</b><br/>' + this.y + ' votes, ' + 
+				(this.y/total_votes*100).toFixed(2) + '%';
+			}
+		},
+		legend: { enabled: false },
+        series: [{ data: <%= @results.to_json %> }]
+      });
+   });
+</script>

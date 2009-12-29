@@ -1,0 +1,1129 @@
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (2.6ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePolls (20091229054143)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "polls" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "score" integer, "url" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091229054143')[0m
+Migrating to CreateChoices (20091229054206)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "choices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "votes" integer, "poll_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091229054206')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("choices")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("polls")[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-29 01:06:16) [GET]
+
+ActionController::RoutingError (No route matches "/" with {:method=>:get}):
+  passenger (2.2.5) lib/phusion_passenger/rack/request_handler.rb:95:in `process_request'
+  passenger (2.2.5) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.5) lib/phusion_passenger/railz/application_spawner.rb:378:in `start_request_handler'
+  passenger (2.2.5) lib/phusion_passenger/railz/application_spawner.rb:336:in `handle_spawn_application'
+  passenger (2.2.5) lib/phusion_passenger/utils.rb:183:in `safe_fork'
+  passenger (2.2.5) lib/phusion_passenger/railz/application_spawner.rb:334:in `handle_spawn_application'
+  passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+  passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.5) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.5) lib/phusion_passenger/spawn_manager.rb:262:in `spawn_rails_application'
+  passenger (2.2.5) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.5) lib/phusion_passenger/spawn_manager.rb:256:in `spawn_rails_application'
+  passenger (2.2.5) lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+  passenger (2.2.5) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.5) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.5) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.5) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+  passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering rescues/layout (not_found)
+/!\ FAILSAFE /!\  Tue Dec 29 01:07:24 -0500 2009
+  Status: 500 Internal Server Error
+  undefined local variable or method `polls_path' for main:Object
+    /Users/quannguyen/ruby/hackerpolls/config/routes.rb:3
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:226:in `draw'
+    /Users/quannguyen/ruby/hackerpolls/config/routes.rb:1
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:145:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:145:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:145:in `load'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:286:in `load_routes!'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:286:in `each'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:286:in `load_routes!'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:266:in `load!'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:281:in `reload'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:59:in `reload_application'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/reloader.rb:28:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/failsafe.rb:26:in `call'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.5/vendor/rack-1.0.0-git/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.5/vendor/rack-1.0.0-git/lib/rack/lock.rb:11:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.5/vendor/rack-1.0.0-git/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:106:in `call'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/rack/request_handler.rb:95:in `process_request'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/railz/application_spawner.rb:378:in `start_request_handler'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/railz/application_spawner.rb:336:in `handle_spawn_application'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/utils.rb:183:in `safe_fork'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/railz/application_spawner.rb:334:in `handle_spawn_application'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/abstract_server.rb:163:in `start'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/spawn_manager.rb:262:in `spawn_rails_application'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/spawn_manager.rb:256:in `spawn_rails_application'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.5/bin/passenger-spawn-server:61
+
+
+Processing PollsController#index (for 127.0.0.1 at 2009-12-29 01:07:33) [GET]
+  [4;36;1mPoll Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such column: votes: SELECT * FROM "polls" ORDER BY votes DESC[0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: votes: SELECT * FROM "polls"  ORDER BY votes DESC):
+  app/controllers/polls_controller.rb:3:in `index'
+  passenger (2.2.5) lib/phusion_passenger/rack/request_handler.rb:95:in `process_request'
+  passenger (2.2.5) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.5) lib/phusion_passenger/railz/application_spawner.rb:378:in `start_request_handler'
+  passenger (2.2.5) lib/phusion_passenger/railz/application_spawner.rb:336:in `handle_spawn_application'
+  passenger (2.2.5) lib/phusion_passenger/utils.rb:183:in `safe_fork'
+  passenger (2.2.5) lib/phusion_passenger/railz/application_spawner.rb:334:in `handle_spawn_application'
+  passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+  passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.5) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.5) lib/phusion_passenger/spawn_manager.rb:262:in `spawn_rails_application'
+  passenger (2.2.5) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.5) lib/phusion_passenger/spawn_manager.rb:256:in `spawn_rails_application'
+  passenger (2.2.5) lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+  passenger (2.2.5) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.5) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.5) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.5) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+  passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendered rescues/_trace (51.5ms)
+Rendered rescues/_request_and_response (1.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PollsController#index (for 127.0.0.1 at 2009-12-29 01:07:58) [GET]
+  [4;35;1mPoll Load (0.9ms)[0m   [0mSELECT * FROM "polls" ORDER BY score DESC[0m
+Rendering template within layouts/application
+Rendering polls/index
+Completed in 54ms (View: 48, DB: 1) | 200 OK [http://hackerpolls.local/]
+
+
+Processing PollsController#index (for 127.0.0.1 at 2009-12-29 01:09:43) [GET]
+  [4;36;1mPoll Load (0.8ms)[0m   [0;1mSELECT * FROM "polls" ORDER BY score DESC[0m
+Rendering template within layouts/application
+Rendering polls/index
+Completed in 10ms (View: 5, DB: 1) | 200 OK [http://hackerpolls.local/]
+
+
+Processing PollsController#new (for 127.0.0.1 at 2009-12-29 01:09:47) [GET]
+Rendering template within layouts/application
+Rendering polls/new
+Completed in 13ms (View: 7, DB: 0) | 200 OK [http://hackerpolls.local/polls/new]
+
+
+Processing PollsController#new (for 127.0.0.1 at 2009-12-29 01:10:08) [GET]
+Rendering template within layouts/application
+Rendering polls/new
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://hackerpolls.local/polls/new]
+
+
+Processing PollsController#new (for 127.0.0.1 at 2009-12-29 01:10:27) [GET]
+Rendering template within layouts/application
+Rendering polls/new
+Completed in 11ms (View: 6, DB: 0) | 200 OK [http://hackerpolls.local/polls/new]
+
+
+Processing PollsController#create (for 127.0.0.1 at 2009-12-29 01:10:39) [POST]
+  Parameters: {"commit"=>"Create", "poll"=>{"url"=>"http://news.ycombinator.com/item?id=517039"}, "authenticity_token"=>"gENFcEnajT3BGUn0Pn83yNvLVD8eEmYiTp7tyQz1o+Y="}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT "polls".id FROM "polls" WHERE ("polls"."url" = 'http://news.ycombinator.com/item?id=517039') LIMIT 1[0m
+  [4;36;1mPoll Create (0.4ms)[0m   [0;1mINSERT INTO "polls" ("score", "updated_at", "title", "url", "created_at") VALUES(NULL, '2009-12-29 06:10:44', NULL, 'http://news.ycombinator.com/item?id=517039', '2009-12-29 06:10:44')[0m
+
+NameError (undefined local variable or method `url' for #<PollsController:0x260c050>):
+  app/controllers/polls_controller.rb:25:in `create'
+  app/controllers/polls_controller.rb:23:in `create'
+  passenger (2.2.5) lib/phusion_passenger/rack/request_handler.rb:95:in `process_request'
+  passenger (2.2.5) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.5) lib/phusion_passenger/railz/application_spawner.rb:378:in `start_request_handler'
+  passenger (2.2.5) lib/phusion_passenger/railz/application_spawner.rb:336:in `handle_spawn_application'
+  passenger (2.2.5) lib/phusion_passenger/utils.rb:183:in `safe_fork'
+  passenger (2.2.5) lib/phusion_passenger/railz/application_spawner.rb:334:in `handle_spawn_application'
+  passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+  passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.5) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.5) lib/phusion_passenger/spawn_manager.rb:262:in `spawn_rails_application'
+  passenger (2.2.5) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.5) lib/phusion_passenger/spawn_manager.rb:256:in `spawn_rails_application'
+  passenger (2.2.5) lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+  passenger (2.2.5) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.5) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.5) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.5) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+  passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendered rescues/_trace (35.1ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PollsController#create (for 127.0.0.1 at 2009-12-29 01:11:48) [POST]
+  Parameters: {"commit"=>"Create", "poll"=>{"url"=>"http://news.ycombinator.com/item?id=517039"}, "authenticity_token"=>"gENFcEnajT3BGUn0Pn83yNvLVD8eEmYiTp7tyQz1o+Y="}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT "polls".id FROM "polls" WHERE ("polls"."url" = 'http://news.ycombinator.com/item?id=517039') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering polls/new
+Completed in 978ms (View: 3, DB: 0) | 200 OK [http://hackerpolls.local/polls]
+
+
+Processing PollsController#index (for 127.0.0.1 at 2009-12-29 01:11:52) [GET]
+  [4;36;1mPoll Load (0.9ms)[0m   [0;1mSELECT * FROM "polls" ORDER BY score DESC[0m
+Rendering template within layouts/application
+Rendering polls/index
+  [4;35;1mChoice Load (0.2ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendered polls/_summary (7.6ms)
+Completed in 17ms (View: 12, DB: 1) | 200 OK [http://hackerpolls.local/]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateChoices (20091229054206)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mDROP TABLE "choices"[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20091229054206'[0m
+Migrating to CreatePolls (20091229054143)
+  [4;35;1mSQL (0.5ms)[0m   [0mDROP TABLE "polls"[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20091229054143'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePolls (20091229054143)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCREATE TABLE "polls" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "score" integer, "url" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091229054143')[0m
+Migrating to CreateChoices (20091229054206)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "choices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "votes" integer, "poll_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091229054206')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("choices")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("polls")[0m
+
+
+Processing PollsController#index (for 127.0.0.1 at 2009-12-29 01:12:15) [GET]
+  [4;36;1mPoll Load (0.8ms)[0m   [0;1mSELECT * FROM "polls" ORDER BY score DESC[0m
+Rendering template within layouts/application
+Rendering polls/index
+Completed in 7ms (View: 2, DB: 1) | 200 OK [http://hackerpolls.local/]
+
+
+Processing PollsController#new (for 127.0.0.1 at 2009-12-29 01:12:17) [GET]
+Rendering template within layouts/application
+Rendering polls/new
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://hackerpolls.local/polls/new]
+
+
+Processing PollsController#create (for 127.0.0.1 at 2009-12-29 01:12:21) [POST]
+  Parameters: {"commit"=>"Create", "poll"=>{"url"=>"http://news.ycombinator.com/item?id=517039"}, "authenticity_token"=>"gENFcEnajT3BGUn0Pn83yNvLVD8eEmYiTp7tyQz1o+Y="}
+  [4;35;1mPoll Load (0.1ms)[0m   [0mSELECT "polls".id FROM "polls" WHERE ("polls"."url" = 'http://news.ycombinator.com/item?id=517039') LIMIT 1[0m
+  [4;36;1mPoll Create (0.4ms)[0m   [0;1mINSERT INTO "polls" ("score", "updated_at", "title", "url", "created_at") VALUES(NULL, '2009-12-29 06:12:22', NULL, 'http://news.ycombinator.com/item?id=517039', '2009-12-29 06:12:22')[0m
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT "polls".id FROM "polls" WHERE ("polls"."url" = 'http://news.ycombinator.com/item?id=517039' AND "polls".id <> 1) LIMIT 1[0m
+  [4;36;1mPoll Update (0.4ms)[0m   [0;1mUPDATE "polls" SET "title" = 'Poll: How old are you?', "score" = 117, "updated_at" = '2009-12-29 06:12:24' WHERE "id" = 1[0m
+  [4;35;1mChoice Create (0.5ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('under 15', '2009-12-29 06:12:24', 7, 1, '2009-12-29 06:12:24')[0m
+  [4;36;1mChoice Create (0.4ms)[0m   [0;1mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('15 - 19', '2009-12-29 06:12:24', 7, 1, '2009-12-29 06:12:24')[0m
+  [4;35;1mChoice Create (0.5ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('20 - 24', '2009-12-29 06:12:24', 127, 1, '2009-12-29 06:12:24')[0m
+  [4;36;1mChoice Create (0.3ms)[0m   [0;1mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('25 - 29', '2009-12-29 06:12:24', 127, 1, '2009-12-29 06:12:24')[0m
+  [4;35;1mChoice Create (0.4ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('30 - 34', '2009-12-29 06:12:24', 567, 1, '2009-12-29 06:12:24')[0m
+  [4;36;1mChoice Create (0.5ms)[0m   [0;1mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('35 - 39', '2009-12-29 06:12:24', 567, 1, '2009-12-29 06:12:24')[0m
+  [4;35;1mChoice Create (0.4ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('40 - 44', '2009-12-29 06:12:24', 588, 1, '2009-12-29 06:12:24')[0m
+  [4;36;1mChoice Create (0.4ms)[0m   [0;1mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('45 - 49', '2009-12-29 06:12:24', 588, 1, '2009-12-29 06:12:24')[0m
+  [4;35;1mChoice Create (0.3ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('50 - 54', '2009-12-29 06:12:24', 285, 1, '2009-12-29 06:12:24')[0m
+  [4;36;1mChoice Create (0.4ms)[0m   [0;1mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('55 - 59', '2009-12-29 06:12:24', 285, 1, '2009-12-29 06:12:24')[0m
+  [4;35;1mChoice Create (1.2ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('60 or over', '2009-12-29 06:12:24', 150, 1, '2009-12-29 06:12:24')[0m
+  [4;36;1mPoll Load (0.3ms)[0m   [0;1mSELECT "polls".id FROM "polls" WHERE ("polls"."url" = 'http://news.ycombinator.com/item?id=517039' AND "polls".id <> 1) LIMIT 1[0m
+Redirected to http://hackerpolls.local/polls/1
+Completed in 4026ms (DB: 7) | 302 Found [http://hackerpolls.local/polls]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 01:12:25) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;36;1mChoice Load (0.9ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Completed in 18ms (View: 5, DB: 1) | 200 OK [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#index (for 127.0.0.1 at 2009-12-29 01:12:31) [GET]
+  [4;35;1mPoll Load (0.9ms)[0m   [0mSELECT * FROM "polls" ORDER BY score DESC[0m
+Rendering template within layouts/application
+Rendering polls/index
+  [4;36;1mChoice Load (1.0ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendered polls/_summary (8.8ms)
+Completed in 16ms (View: 10, DB: 2) | 200 OK [http://hackerpolls.local/polls]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 01:12:35) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;36;1mChoice Load (0.9ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Completed in 14ms (View: 3, DB: 1) | 200 OK [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 01:16:15) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;36;1mChoice Load (0.9ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Completed in 14ms (View: 3, DB: 1) | 200 OK [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 01:16:18) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;36;1mChoice Load (0.9ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Completed in 14ms (View: 3, DB: 1) | 200 OK [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#index (for 127.0.0.1 at 2009-12-29 01:16:20) [GET]
+  [4;35;1mPoll Load (0.9ms)[0m   [0mSELECT * FROM "polls" ORDER BY score DESC[0m
+Rendering template within layouts/application
+Rendering polls/index
+  [4;36;1mChoice Load (1.0ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendered polls/_summary (40.9ms)
+Completed in 50ms (View: 44, DB: 2) | 200 OK [http://hackerpolls.local/]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 01:16:21) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;36;1mChoice Load (0.9ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Completed in 88ms (View: 76, DB: 1) | 200 OK [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 01:23:36) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;36;1mChoice Load (0.9ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Completed in 20ms (View: 7, DB: 1) | 200 OK [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 01:24:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;36;1mChoice Load (0.9ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Completed in 19ms (View: 7, DB: 1) | 200 OK [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 01:24:23) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;36;1mChoice Load (0.9ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+ERROR: compiling _run_erb_app47views47polls47show46html46erb RAISED compile error
+/Users/quannguyen/ruby/hackerpolls/app/views/polls/show.html.erb:7: syntax error, unexpected tOROP
+...arams[:chart]=='vertical')? || false ).to_s); @output_buffer...
+                              ^
+Function body:           def _run_erb_app47views47polls47show46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat(( render :parital => 'summary', :locals => { :poll => @poll } ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat(( link_to 'Horizontal', @poll ).to_s); @output_buffer.concat " \n"
+@output_buffer.concat(( link_to 'Vertical', {:action => 'show', :id => @poll.id, :chart => 'vertical' }).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "<div id=\"chart-container\">\n"
+@output_buffer.concat "<script>\n"
+@output_buffer.concat "$(document).ready(function() {\n"
+@output_buffer.concat "\tvar vertical = "; @output_buffer.concat(( (params[:chart]=='vertical')? || false ).to_s); @output_buffer.concat ";\n"
+@output_buffer.concat "\tvar angle = -45;\n"
+@output_buffer.concat "\tif(vertical) {\n"
+@output_buffer.concat "\t\tangle = 0;\n"
+@output_buffer.concat "\t}\n"
+@output_buffer.concat "\tvar chart1 = new Highcharts.Chart({\n"
+@output_buffer.concat "    chart: {\n"
+@output_buffer.concat "\t\trenderTo: 'chart-container',\n"
+@output_buffer.concat "      \t\tdefaultSeriesType: 'column',\n"
+@output_buffer.concat "\t\t\tinverted: vertical,\n"
+@output_buffer.concat "\t\t\tmargin: [50, 50, 100, 150]\n"
+@output_buffer.concat "        },\n"
+@output_buffer.concat "        title: { text: "; @output_buffer.concat(( @poll.title ).to_s); @output_buffer.concat " },\n"
+@output_buffer.concat "        xAxis: { categories: "; @output_buffer.concat(( @categories.to_json ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "\t \t\n"
+@output_buffer.concat "\t\t},\n"
+@output_buffer.concat "        yAxis: {\n"
+@output_buffer.concat "            title: {\n"
+@output_buffer.concat "               text: 'votes'\n"
+@output_buffer.concat "            }\n"
+@output_buffer.concat "         },\n"
+@output_buffer.concat "         series: [{ data: "; @output_buffer.concat(( @results.to_json ).to_s); @output_buffer.concat " }]\n"
+@output_buffer.concat "      });\n"
+@output_buffer.concat "   });\n"
+@output_buffer.concat "</script>"; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/quannguyen/ruby/hackerpolls/app/views/polls/show.html.erb:34:in `compile!'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_view/renderable.rb:61:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_view/renderable.rb:28:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_view/template.rb:199:in `render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_view/base.rb:260:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_view/base.rb:343:in `_render_with_layout'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_view/base.rb:257:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:1246:in `render_for_file'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:941:in `render_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:1322:in `default_render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:1328:in `perform_action_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:617:in `call_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/flash.rb:146:in `perform_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:527:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:527:in `process_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:606:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:391:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:386:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:434:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:111:in `_call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:82:in `initialize'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:9:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:28:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Library/Ruby/Gems/1.8/gems/passenger-2.2.5/vendor/rack-1.0.0-git/lib/rack/head.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/passenger-2.2.5/vendor/rack-1.0.0-git/lib/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/params_parser.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/reloader.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/failsafe.rb:26:in `call'
+/Library/Ruby/Gems/1.8/gems/passenger-2.2.5/vendor/rack-1.0.0-git/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/passenger-2.2.5/vendor/rack-1.0.0-git/lib/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/passenger-2.2.5/vendor/rack-1.0.0-git/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:106:in `call'
+/Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/rack/request_handler.rb:95:in `process_request'
+/Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+/Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/railz/application_spawner.rb:378:in `start_request_handler'
+/Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/railz/application_spawner.rb:336:in `handle_spawn_application'
+/Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/utils.rb:183:in `safe_fork'
+/Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/railz/application_spawner.rb:334:in `handle_spawn_application'
+/Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+/Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+/Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+/Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/abstract_server.rb:163:in `start'
+/Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+/Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/spawn_manager.rb:262:in `spawn_rails_application'
+/Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+/Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/spawn_manager.rb:256:in `spawn_rails_application'
+/Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+/Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+/Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+/Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+/Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+/Library/Ruby/Gems/1.8/gems/passenger-2.2.5/lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+/Library/Ruby/Gems/1.8/gems/passenger-2.2.5/bin/passenger-spawn-server:61
+
+ActionView::TemplateError (compile error
+/Users/quannguyen/ruby/hackerpolls/app/views/polls/show.html.erb:7: syntax error, unexpected tOROP
+...arams[:chart]=='vertical')? || false ).to_s); @output_buffer...
+                              ^) on line #7 of app/views/polls/show.html.erb:
+4: <div id="chart-container">
+5: <script>
+6: $(document).ready(function() {
+7: 	var vertical = <%= (params[:chart]=='vertical')? || false %>;
+8: 	var angle = -45;
+9: 	if(vertical) {
+10: 		angle = 0;
+
+    app/views/polls/show.html.erb:34:in `compile!'
+    passenger (2.2.5) lib/phusion_passenger/rack/request_handler.rb:95:in `process_request'
+    passenger (2.2.5) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+    passenger (2.2.5) lib/phusion_passenger/railz/application_spawner.rb:378:in `start_request_handler'
+    passenger (2.2.5) lib/phusion_passenger/railz/application_spawner.rb:336:in `handle_spawn_application'
+    passenger (2.2.5) lib/phusion_passenger/utils.rb:183:in `safe_fork'
+    passenger (2.2.5) lib/phusion_passenger/railz/application_spawner.rb:334:in `handle_spawn_application'
+    passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+    passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+    passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+    passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:163:in `start'
+    passenger (2.2.5) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+    passenger (2.2.5) lib/phusion_passenger/spawn_manager.rb:262:in `spawn_rails_application'
+    passenger (2.2.5) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+    passenger (2.2.5) lib/phusion_passenger/spawn_manager.rb:256:in `spawn_rails_application'
+    passenger (2.2.5) lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+    passenger (2.2.5) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+    passenger (2.2.5) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+    passenger (2.2.5) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+    passenger (2.2.5) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+    passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+    passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+    passenger (2.2.5) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendered rescues/_trace (40.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 01:24:34) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;36;1mChoice Load (1.0ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Completed in 19ms (View: 7, DB: 1) | 200 OK [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 01:25:07) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;36;1mChoice Load (0.9ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Completed in 20ms (View: 8, DB: 1) | 200 OK [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 01:25:35) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;36;1mChoice Load (0.9ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Completed in 90ms (View: 7, DB: 1) | 200 OK [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 01:26:02) [GET]
+  Parameters: {"id"=>"1", "chart"=>"vertical"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;36;1mChoice Load (0.9ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Completed in 16ms (View: 3, DB: 1) | 200 OK [http://hackerpolls.local/polls/1?chart=vertical]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 01:26:05) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;36;1mChoice Load (0.9ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Completed in 15ms (View: 3, DB: 1) | 200 OK [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 01:31:19) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;36;1mChoice Load (0.9ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Completed in 19ms (View: 7, DB: 1) | 200 OK [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 01:31:48) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;36;1mChoice Load (0.9ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Completed in 19ms (View: 7, DB: 1) | 200 OK [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 01:32:04) [GET]
+  Parameters: {"id"=>"1", "chart"=>"vertical"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;36;1mChoice Load (0.9ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Completed in 15ms (View: 3, DB: 1) | 200 OK [http://hackerpolls.local/polls/1?chart=vertical]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 01:32:07) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;36;1mChoice Load (0.9ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Completed in 15ms (View: 3, DB: 1) | 200 OK [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 01:32:38) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;36;1mChoice Load (0.9ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Completed in 19ms (View: 7, DB: 1) | 200 OK [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 01:32:41) [GET]
+  Parameters: {"id"=>"1", "chart"=>"vertical"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;36;1mChoice Load (0.9ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Completed in 15ms (View: 3, DB: 1) | 200 OK [http://hackerpolls.local/polls/1?chart=vertical]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 01:32:44) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;36;1mChoice Load (0.9ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Completed in 15ms (View: 3, DB: 1) | 200 OK [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 01:33:11) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;36;1mChoice Load (0.9ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Completed in 20ms (View: 8, DB: 1) | 200 OK [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 01:33:46) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;36;1mChoice Load (0.9ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Completed in 20ms (View: 7, DB: 1) | 200 OK [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 01:34:00) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;36;1mChoice Load (0.9ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Completed in 19ms (View: 7, DB: 1) | 200 OK [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#index (for 127.0.0.1 at 2009-12-29 01:34:12) [GET]
+  [4;35;1mPoll Load (0.9ms)[0m   [0mSELECT * FROM "polls" ORDER BY score DESC[0m
+Rendering template within layouts/application
+Rendering polls/index
+  [4;36;1mChoice Load (0.9ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendered polls/_summary (11.4ms)
+Completed in 19ms (View: 12, DB: 2) | 200 OK [http://hackerpolls.local/]
+
+
+Processing PollsController#new (for 127.0.0.1 at 2009-12-29 01:34:47) [GET]
+Rendering template within layouts/application
+Rendering polls/new
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://hackerpolls.local/polls/new]
+
+
+Processing PollsController#create (for 127.0.0.1 at 2009-12-29 01:34:49) [POST]
+  Parameters: {"commit"=>"Create", "poll"=>{"url"=>""}, "authenticity_token"=>"gENFcEnajT3BGUn0Pn83yNvLVD8eEmYiTp7tyQz1o+Y="}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT "polls".id FROM "polls" WHERE ("polls"."url" = '') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering polls/new
+Completed in 14ms (View: 3, DB: 0) | 200 OK [http://hackerpolls.local/polls]
+
+
+Processing PollsController#create (for 127.0.0.1 at 2009-12-29 01:35:25) [POST]
+  Parameters: {"commit"=>"Create", "poll"=>{"url"=>"http://news.ycombinator.com/item?id=1019360"}, "authenticity_token"=>"gENFcEnajT3BGUn0Pn83yNvLVD8eEmYiTp7tyQz1o+Y="}
+  [4;36;1mPoll Load (0.1ms)[0m   [0;1mSELECT "polls".id FROM "polls" WHERE ("polls"."url" = 'http://news.ycombinator.com/item?id=1019360') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering polls/new
+Completed in 805ms (View: 5, DB: 0) | 200 OK [http://hackerpolls.local/polls]
+
+
+Processing PollsController#index (for 127.0.0.1 at 2009-12-29 01:35:29) [GET]
+  [4;35;1mPoll Load (0.9ms)[0m   [0mSELECT * FROM "polls" ORDER BY score DESC[0m
+Rendering template within layouts/application
+Rendering polls/index
+  [4;36;1mChoice Load (0.9ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendered polls/_summary (11.7ms)
+Completed in 19ms (View: 13, DB: 2) | 200 OK [http://hackerpolls.local/]
+
+
+Processing PollsController#edit (for 127.0.0.1 at 2009-12-29 01:36:19) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering polls/edit
+  [4;36;1mChoice Load (1.0ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendered polls/_summary (10.1ms)
+Completed in 21ms (View: 14, DB: 1) | 200 OK [http://hackerpolls.local/polls/1/edit]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 01:38:20) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;36;1mChoice Load (0.9ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Completed in 15ms (View: 3, DB: 1) | 200 OK [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 01:38:45) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;36;1mChoice Load (0.9ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Rendered polls/_summary (4.0ms)
+Completed in 22ms (View: 10, DB: 1) | 200 OK [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#edit (for 127.0.0.1 at 2009-12-29 01:38:51) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering polls/edit
+  [4;36;1mChoice Load (0.9ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendered polls/_summary (10.0ms)
+Completed in 18ms (View: 11, DB: 1) | 200 OK [http://hackerpolls.local/polls/1/edit]
+
+
+Processing PollsController#update (for 127.0.0.1 at 2009-12-29 01:38:52) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"gENFcEnajT3BGUn0Pn83yNvLVD8eEmYiTp7tyQz1o+Y=", "id"=>"1"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;36;1mPoll Load (0.1ms)[0m   [0;1mSELECT "polls".id FROM "polls" WHERE ("polls"."url" = 'http://news.ycombinator.com/item?id=517039' AND "polls".id <> 1) LIMIT 1[0m
+  [4;35;1mPoll Update (0.4ms)[0m   [0mUPDATE "polls" SET "score" = 0, "updated_at" = '2009-12-29 06:38:53' WHERE "id" = 1[0m
+  [4;36;1mChoice Load (1.0ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+  [4;35;1mChoice Update (0.8ms)[0m   [0mUPDATE "choices" SET poll_id = NULL WHERE (poll_id = 1 AND id IN (1,2,3,4,5,6,7,8,9,10,11)) [0m
+  [4;36;1mPoll Load (0.3ms)[0m   [0;1mSELECT "polls".id FROM "polls" WHERE ("polls"."url" = 'http://news.ycombinator.com/item?id=517039' AND "polls".id <> 1) LIMIT 1[0m
+  [4;35;1mPoll Update (0.4ms)[0m   [0mUPDATE "polls" SET "score" = 117, "updated_at" = '2009-12-29 06:38:57' WHERE "id" = 1[0m
+  [4;36;1mChoice Create (0.5ms)[0m   [0;1mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('under 15', '2009-12-29 06:38:57', 7, 1, '2009-12-29 06:38:57')[0m
+  [4;35;1mChoice Create (0.4ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('15 - 19', '2009-12-29 06:38:57', 7, 1, '2009-12-29 06:38:57')[0m
+  [4;36;1mChoice Create (0.4ms)[0m   [0;1mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('20 - 24', '2009-12-29 06:38:57', 127, 1, '2009-12-29 06:38:57')[0m
+  [4;35;1mChoice Create (0.5ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('25 - 29', '2009-12-29 06:38:57', 127, 1, '2009-12-29 06:38:57')[0m
+  [4;36;1mChoice Create (0.3ms)[0m   [0;1mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('30 - 34', '2009-12-29 06:38:57', 567, 1, '2009-12-29 06:38:57')[0m
+  [4;35;1mChoice Create (0.4ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('35 - 39', '2009-12-29 06:38:57', 567, 1, '2009-12-29 06:38:57')[0m
+  [4;36;1mChoice Create (0.6ms)[0m   [0;1mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('40 - 44', '2009-12-29 06:38:57', 588, 1, '2009-12-29 06:38:57')[0m
+  [4;35;1mChoice Create (0.4ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('45 - 49', '2009-12-29 06:38:57', 588, 1, '2009-12-29 06:38:57')[0m
+  [4;36;1mChoice Create (0.5ms)[0m   [0;1mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('50 - 54', '2009-12-29 06:38:57', 285, 1, '2009-12-29 06:38:57')[0m
+  [4;35;1mChoice Create (0.3ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('55 - 59', '2009-12-29 06:38:57', 285, 1, '2009-12-29 06:38:57')[0m
+  [4;36;1mChoice Create (0.4ms)[0m   [0;1mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('60 or over', '2009-12-29 06:38:57', 150, 1, '2009-12-29 06:38:57')[0m
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT "polls".id FROM "polls" WHERE ("polls"."url" = 'http://news.ycombinator.com/item?id=517039' AND "polls".id <> 1) LIMIT 1[0m
+Redirected to http://hackerpolls.local/polls/1
+Completed in 5038ms (DB: 8) | 302 Found [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 01:38:58) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPoll Load (0.2ms)[0m   [0;1mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;35;1mChoice Load (1.0ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Rendered polls/_summary (4.0ms)
+Completed in 18ms (View: 7, DB: 1) | 200 OK [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#index (for 127.0.0.1 at 2009-12-29 01:39:05) [GET]
+  [4;36;1mPoll Load (0.9ms)[0m   [0;1mSELECT * FROM "polls" ORDER BY score DESC[0m
+Rendering template within layouts/application
+Rendering polls/index
+  [4;35;1mChoice Load (0.9ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendered polls/_summary (11.8ms)
+Completed in 19ms (View: 13, DB: 2) | 200 OK [http://hackerpolls.local/]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 01:39:22) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPoll Load (0.2ms)[0m   [0;1mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;35;1mChoice Load (0.9ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Rendered polls/_summary (4.3ms)
+Completed in 19ms (View: 7, DB: 1) | 200 OK [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#edit (for 127.0.0.1 at 2009-12-29 01:41:14) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPoll Load (0.2ms)[0m   [0;1mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering polls/edit
+  [4;35;1mChoice Load (1.0ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendered polls/_summary (10.0ms)
+Completed in 18ms (View: 11, DB: 1) | 200 OK [http://hackerpolls.local/polls/1/edit]
+
+
+Processing PollsController#update (for 127.0.0.1 at 2009-12-29 01:41:15) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"gENFcEnajT3BGUn0Pn83yNvLVD8eEmYiTp7tyQz1o+Y=", "id"=>"1"}
+  [4;36;1mPoll Load (0.2ms)[0m   [0;1mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;35;1mPoll Load (0.1ms)[0m   [0mSELECT "polls".id FROM "polls" WHERE ("polls"."url" = 'http://news.ycombinator.com/item?id=517039' AND "polls".id <> 1) LIMIT 1[0m
+  [4;36;1mPoll Update (0.4ms)[0m   [0;1mUPDATE "polls" SET "score" = 0, "updated_at" = '2009-12-29 06:41:16' WHERE "id" = 1[0m
+  [4;35;1mChoice Load (1.1ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+  [4;36;1mChoice Update (0.7ms)[0m   [0;1mUPDATE "choices" SET poll_id = NULL WHERE (poll_id = 1 AND id IN (12,13,14,15,16,17,18,19,20,21,22)) [0m
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT "polls".id FROM "polls" WHERE ("polls"."url" = 'http://news.ycombinator.com/item?id=517039' AND "polls".id <> 1) LIMIT 1[0m
+  [4;36;1mPoll Update (0.4ms)[0m   [0;1mUPDATE "polls" SET "score" = 117, "updated_at" = '2009-12-29 06:41:18' WHERE "id" = 1[0m
+  [4;35;1mChoice Create (0.5ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('under 15', '2009-12-29 06:41:18', 7, 1, '2009-12-29 06:41:18')[0m
+  [4;36;1mChoice Create (0.4ms)[0m   [0;1mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('15 - 19', '2009-12-29 06:41:18', 127, 1, '2009-12-29 06:41:18')[0m
+  [4;35;1mChoice Create (0.4ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('20 - 24', '2009-12-29 06:41:18', 567, 1, '2009-12-29 06:41:18')[0m
+  [4;36;1mChoice Create (0.5ms)[0m   [0;1mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('25 - 29', '2009-12-29 06:41:18', 588, 1, '2009-12-29 06:41:18')[0m
+  [4;35;1mChoice Create (0.3ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('30 - 34', '2009-12-29 06:41:18', 285, 1, '2009-12-29 06:41:18')[0m
+  [4;36;1mChoice Create (0.4ms)[0m   [0;1mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('35 - 39', '2009-12-29 06:41:18', 150, 1, '2009-12-29 06:41:18')[0m
+  [4;35;1mChoice Create (0.5ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('40 - 44', '2009-12-29 06:41:18', 78, 1, '2009-12-29 06:41:18')[0m
+  [4;36;1mChoice Create (0.4ms)[0m   [0;1mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('45 - 49', '2009-12-29 06:41:18', 32, 1, '2009-12-29 06:41:18')[0m
+  [4;35;1mChoice Create (0.4ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('50 - 54', '2009-12-29 06:41:18', 18, 1, '2009-12-29 06:41:18')[0m
+  [4;36;1mChoice Create (0.3ms)[0m   [0;1mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('55 - 59', '2009-12-29 06:41:18', 9, 1, '2009-12-29 06:41:18')[0m
+  [4;35;1mChoice Create (0.4ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('60 or over', '2009-12-29 06:41:18', 9, 1, '2009-12-29 06:41:18')[0m
+  [4;36;1mPoll Load (0.2ms)[0m   [0;1mSELECT "polls".id FROM "polls" WHERE ("polls"."url" = 'http://news.ycombinator.com/item?id=517039' AND "polls".id <> 1) LIMIT 1[0m
+Redirected to http://hackerpolls.local/polls/1
+Completed in 3956ms (DB: 8) | 302 Found [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 01:41:19) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;36;1mChoice Load (0.9ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Rendered polls/_summary (4.0ms)
+Completed in 18ms (View: 6, DB: 1) | 200 OK [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#edit (for 127.0.0.1 at 2009-12-29 01:42:20) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering polls/edit
+  [4;36;1mChoice Load (0.9ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendered polls/_summary (10.1ms)
+Completed in 18ms (View: 12, DB: 1) | 200 OK [http://hackerpolls.local/polls/1/edit]
+
+
+Processing PollsController#update (for 127.0.0.1 at 2009-12-29 01:42:22) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"gENFcEnajT3BGUn0Pn83yNvLVD8eEmYiTp7tyQz1o+Y=", "id"=>"1"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;36;1mPoll Load (0.1ms)[0m   [0;1mSELECT "polls".id FROM "polls" WHERE ("polls"."url" = 'http://news.ycombinator.com/item?id=517039' AND "polls".id <> 1) LIMIT 1[0m
+  [4;35;1mPoll Update (0.4ms)[0m   [0mUPDATE "polls" SET "score" = 0, "updated_at" = '2009-12-29 06:42:23' WHERE "id" = 1[0m
+  [4;36;1mChoice Load (1.1ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+  [4;35;1mChoice Update (0.7ms)[0m   [0mUPDATE "choices" SET poll_id = NULL WHERE (poll_id = 1 AND id IN (23,24,25,26,27,28,29,30,31,32,33)) [0m
+  [4;36;1mChoice Create (0.4ms)[0m   [0;1mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('under 15', '2009-12-29 06:42:24', 7, 1, '2009-12-29 06:42:24')[0m
+  [4;35;1mChoice Create (0.4ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('15 - 19', '2009-12-29 06:42:24', 127, 1, '2009-12-29 06:42:24')[0m
+  [4;36;1mChoice Create (0.4ms)[0m   [0;1mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('20 - 24', '2009-12-29 06:42:24', 567, 1, '2009-12-29 06:42:24')[0m
+  [4;35;1mChoice Create (0.6ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('25 - 29', '2009-12-29 06:42:24', 588, 1, '2009-12-29 06:42:24')[0m
+  [4;36;1mChoice Create (0.4ms)[0m   [0;1mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('30 - 34', '2009-12-29 06:42:24', 285, 1, '2009-12-29 06:42:24')[0m
+  [4;35;1mChoice Create (0.4ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('35 - 39', '2009-12-29 06:42:24', 150, 1, '2009-12-29 06:42:24')[0m
+  [4;36;1mChoice Create (0.4ms)[0m   [0;1mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('40 - 44', '2009-12-29 06:42:24', 78, 1, '2009-12-29 06:42:24')[0m
+  [4;35;1mChoice Create (0.5ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('45 - 49', '2009-12-29 06:42:24', 32, 1, '2009-12-29 06:42:24')[0m
+  [4;36;1mChoice Create (0.4ms)[0m   [0;1mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('50 - 54', '2009-12-29 06:42:24', 18, 1, '2009-12-29 06:42:24')[0m
+  [4;35;1mChoice Create (0.5ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('55 - 59', '2009-12-29 06:42:24', 9, 1, '2009-12-29 06:42:24')[0m
+  [4;36;1mChoice Create (0.3ms)[0m   [0;1mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('60 or over', '2009-12-29 06:42:24', 9, 1, '2009-12-29 06:42:24')[0m
+  [4;35;1mPoll Load (0.7ms)[0m   [0mSELECT "polls".id FROM "polls" WHERE ("polls"."url" = 'http://news.ycombinator.com/item?id=517039' AND "polls".id <> 1) LIMIT 1[0m
+  [4;36;1mPoll Update (0.4ms)[0m   [0;1mUPDATE "polls" SET "score" = 117, "updated_at" = '2009-12-29 06:42:25' WHERE "id" = 1[0m
+Redirected to http://hackerpolls.local/polls/1
+Completed in 3159ms (DB: 8) | 302 Found [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 01:42:25) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;36;1mChoice Load (1.0ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Rendered polls/_summary (4.0ms)
+Completed in 19ms (View: 7, DB: 1) | 200 OK [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#index (for 127.0.0.1 at 2009-12-29 01:43:02) [GET]
+  [4;35;1mPoll Load (0.9ms)[0m   [0mSELECT * FROM "polls" ORDER BY score DESC[0m
+Rendering template within layouts/application
+Rendering polls/index
+  [4;36;1mChoice Load (1.0ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendered polls/_summary (11.5ms)
+Completed in 19ms (View: 12, DB: 2) | 200 OK [http://hackerpolls.local/]
+
+
+Processing PollsController#index (for 127.0.0.1 at 2009-12-29 10:24:49) [GET]
+  [4;36;1mPoll Load (1.1ms)[0m   [0;1mSELECT * FROM "polls" ORDER BY score DESC[0m
+Rendering template within layouts/application
+Rendering polls/index
+  [4;35;1mChoice Load (1.3ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendered polls/_summary (223.2ms)
+Completed in 396ms (View: 387, DB: 2) | 200 OK [http://hackerpolls.local/]
+
+
+Processing PollsController#index (for 127.0.0.1 at 2009-12-29 10:26:24) [GET]
+  [4;36;1mPoll Load (0.9ms)[0m   [0;1mSELECT * FROM "polls" ORDER BY score DESC[0m
+Rendering template within layouts/application
+Rendering polls/index
+  [4;35;1mChoice Load (1.0ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendered polls/_summary (19.6ms)
+Completed in 32ms (View: 25, DB: 2) | 200 OK [http://hackerpolls.local/]
+
+
+Processing PollsController#index (for 127.0.0.1 at 2009-12-29 10:26:25) [GET]
+  [4;36;1mPoll Load (0.9ms)[0m   [0;1mSELECT * FROM "polls" ORDER BY score DESC[0m
+Rendering template within layouts/application
+Rendering polls/index
+  [4;35;1mChoice Load (1.0ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendered polls/_summary (19.2ms)
+Completed in 27ms (View: 20, DB: 2) | 200 OK [http://hackerpolls.local/]
+
+
+Processing PollsController#index (for 127.0.0.1 at 2009-12-29 10:27:27) [GET]
+  [4;36;1mPoll Load (1.1ms)[0m   [0;1mSELECT * FROM "polls" ORDER BY score DESC[0m
+Rendering template within layouts/application
+Rendering polls/index
+  [4;35;1mChoice Load (1.1ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendered polls/_summary (139.3ms)
+Completed in 152ms (View: 145, DB: 2) | 200 OK [http://hackerpolls.local/]
+
+
+Processing PollsController#index (for 127.0.0.1 at 2009-12-29 10:27:38) [GET]
+  [4;36;1mPoll Load (0.9ms)[0m   [0;1mSELECT * FROM "polls" ORDER BY score DESC[0m
+Rendering template within layouts/application
+Rendering polls/index
+  [4;35;1mChoice Load (1.1ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendered polls/_summary (18.7ms)
+Completed in 30ms (View: 23, DB: 2) | 200 OK [http://hackerpolls.local/]
+
+
+Processing PollsController#index (for 127.0.0.1 at 2009-12-29 10:28:35) [GET]
+  [4;36;1mPoll Load (0.9ms)[0m   [0;1mSELECT * FROM "polls" ORDER BY score DESC[0m
+Rendering template within layouts/application
+Rendering polls/index
+  [4;35;1mChoice Load (1.0ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendered polls/_summary (19.1ms)
+Completed in 30ms (View: 23, DB: 2) | 200 OK [http://hackerpolls.local/]
+
+
+Processing PollsController#index (for 127.0.0.1 at 2009-12-29 10:29:42) [GET]
+  [4;36;1mPoll Load (0.9ms)[0m   [0;1mSELECT * FROM "polls" ORDER BY score DESC[0m
+Rendering template within layouts/application
+Rendering polls/index
+  [4;35;1mChoice Load (1.0ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendered polls/_summary (18.6ms)
+Completed in 29ms (View: 23, DB: 2) | 200 OK [http://hackerpolls.local/]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 10:30:06) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPoll Load (0.2ms)[0m   [0;1mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;35;1mChoice Load (0.9ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Rendered polls/_summary (11.3ms)
+Completed in 52ms (View: 41, DB: 1) | 200 OK [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 10:30:20) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPoll Load (0.2ms)[0m   [0;1mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;35;1mChoice Load (0.9ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Rendered polls/_summary (11.2ms)
+Completed in 25ms (View: 14, DB: 1) | 200 OK [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#edit (for 127.0.0.1 at 2009-12-29 10:32:52) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPoll Load (0.2ms)[0m   [0;1mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering polls/edit
+  [4;35;1mChoice Load (1.0ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendered polls/_summary (17.4ms)
+Completed in 55ms (View: 48, DB: 1) | 200 OK [http://hackerpolls.local/polls/1/edit]
+
+
+Processing PollsController#update (for 127.0.0.1 at 2009-12-29 10:32:54) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"G9zwnnlLsZmv6Z/I/PUraqcslcJhYDFmy5kkva6TCco=", "id"=>"1"}
+  [4;36;1mPoll Load (0.2ms)[0m   [0;1mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;35;1mPoll Load (0.1ms)[0m   [0mSELECT "polls".id FROM "polls" WHERE ("polls"."url" = 'http://news.ycombinator.com/item?id=517039' AND "polls".id <> 1) LIMIT 1[0m
+  [4;36;1mPoll Update (0.4ms)[0m   [0;1mUPDATE "polls" SET "score" = 0, "updated_at" = '2009-12-29 15:32:55' WHERE "id" = 1[0m
+  [4;35;1mChoice Load (1.1ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+  [4;36;1mChoice Update (0.9ms)[0m   [0;1mUPDATE "choices" SET poll_id = NULL WHERE (poll_id = 1 AND id IN (34,35,36,37,38,39,40,41,42,43,44)) [0m
+  [4;35;1mChoice Create (0.4ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('under 15', '2009-12-29 15:32:55', 7, 1, '2009-12-29 15:32:55')[0m
+  [4;36;1mChoice Create (0.3ms)[0m   [0;1mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('15 - 19', '2009-12-29 15:32:55', 127, 1, '2009-12-29 15:32:55')[0m
+  [4;35;1mChoice Create (0.3ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('20 - 24', '2009-12-29 15:32:55', 567, 1, '2009-12-29 15:32:55')[0m
+  [4;36;1mChoice Create (0.3ms)[0m   [0;1mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('25 - 29', '2009-12-29 15:32:55', 588, 1, '2009-12-29 15:32:55')[0m
+  [4;35;1mChoice Create (0.4ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('30 - 34', '2009-12-29 15:32:55', 285, 1, '2009-12-29 15:32:55')[0m
+  [4;36;1mChoice Create (0.3ms)[0m   [0;1mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('35 - 39', '2009-12-29 15:32:55', 150, 1, '2009-12-29 15:32:55')[0m
+  [4;35;1mChoice Create (0.3ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('40 - 44', '2009-12-29 15:32:55', 78, 1, '2009-12-29 15:32:55')[0m
+  [4;36;1mChoice Create (0.3ms)[0m   [0;1mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('45 - 49', '2009-12-29 15:32:55', 32, 1, '2009-12-29 15:32:55')[0m
+  [4;35;1mChoice Create (0.4ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('50 - 54', '2009-12-29 15:32:55', 18, 1, '2009-12-29 15:32:55')[0m
+  [4;36;1mChoice Create (0.3ms)[0m   [0;1mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('55 - 59', '2009-12-29 15:32:55', 9, 1, '2009-12-29 15:32:55')[0m
+  [4;35;1mChoice Create (0.3ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('60 or over', '2009-12-29 15:32:55', 9, 1, '2009-12-29 15:32:55')[0m
+  [4;36;1mPoll Load (0.2ms)[0m   [0;1mSELECT "polls".id FROM "polls" WHERE ("polls"."url" = 'http://news.ycombinator.com/item?id=517039' AND "polls".id <> 1) LIMIT 1[0m
+  [4;35;1mPoll Update (0.3ms)[0m   [0mUPDATE "polls" SET "score" = 117, "updated_at" = '2009-12-29 15:32:56' WHERE "id" = 1[0m
+Redirected to http://hackerpolls.local/polls/1
+Completed in 1906ms (DB: 7) | 302 Found [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 10:32:56) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPoll Load (0.2ms)[0m   [0;1mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;35;1mChoice Load (1.0ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Rendered polls/_summary (10.6ms)
+Completed in 25ms (View: 13, DB: 1) | 200 OK [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#edit (for 127.0.0.1 at 2009-12-29 10:32:59) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPoll Load (0.2ms)[0m   [0;1mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering polls/edit
+  [4;35;1mChoice Load (1.0ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendered polls/_summary (16.5ms)
+Completed in 25ms (View: 18, DB: 1) | 200 OK [http://hackerpolls.local/polls/1/edit]
+
+
+Processing PollsController#update (for 127.0.0.1 at 2009-12-29 10:33:00) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"G9zwnnlLsZmv6Z/I/PUraqcslcJhYDFmy5kkva6TCco=", "id"=>"1"}
+  [4;36;1mPoll Load (0.2ms)[0m   [0;1mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+Redirected to http://hackerpolls.local/polls/1
+Completed in 16ms (DB: 0) | 302 Found [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 10:33:00) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPoll Load (0.2ms)[0m   [0mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;36;1mChoice Load (0.9ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Rendered polls/_summary (10.5ms)
+Completed in 25ms (View: 13, DB: 1) | 200 OK [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 10:47:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPoll Load (0.3ms)[0m   [0;1mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;35;1mChoice Load (1.1ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Rendered polls/_summary (41.8ms)
+Completed in 94ms (View: 62, DB: 1) | 200 OK [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#edit (for 127.0.0.1 at 2009-12-29 10:47:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPoll Load (0.2ms)[0m   [0;1mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering polls/edit
+  [4;35;1mChoice Load (1.1ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendered polls/_summary (17.6ms)
+Completed in 30ms (View: 23, DB: 1) | 200 OK [http://hackerpolls.local/polls/1/edit]
+
+
+Processing PollsController#update (for 127.0.0.1 at 2009-12-29 10:47:51) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"G9zwnnlLsZmv6Z/I/PUraqcslcJhYDFmy5kkva6TCco=", "id"=>"1"}
+  [4;36;1mPoll Load (0.2ms)[0m   [0;1mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;35;1mPoll Load (0.1ms)[0m   [0mSELECT "polls".id FROM "polls" WHERE ("polls"."url" = 'http://news.ycombinator.com/item?id=517039' AND "polls".id <> 1) LIMIT 1[0m
+  [4;36;1mPoll Update (0.4ms)[0m   [0;1mUPDATE "polls" SET "score" = 0, "updated_at" = '2009-12-29 15:47:52' WHERE "id" = 1[0m
+  [4;35;1mChoice Load (1.0ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+  [4;36;1mChoice Update (0.7ms)[0m   [0;1mUPDATE "choices" SET poll_id = NULL WHERE (poll_id = 1 AND id IN (45,46,47,48,49,50,51,52,53,54,55)) [0m
+  [4;35;1mChoice Create (0.4ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('under 15', '2009-12-29 15:47:53', 7, 1, '2009-12-29 15:47:53')[0m
+  [4;36;1mChoice Create (0.3ms)[0m   [0;1mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('15 - 19', '2009-12-29 15:47:53', 127, 1, '2009-12-29 15:47:53')[0m
+  [4;35;1mChoice Create (0.4ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('20 - 24', '2009-12-29 15:47:53', 567, 1, '2009-12-29 15:47:53')[0m
+  [4;36;1mChoice Create (0.3ms)[0m   [0;1mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('25 - 29', '2009-12-29 15:47:53', 588, 1, '2009-12-29 15:47:53')[0m
+  [4;35;1mChoice Create (0.3ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('30 - 34', '2009-12-29 15:47:53', 285, 1, '2009-12-29 15:47:53')[0m
+  [4;36;1mChoice Create (0.3ms)[0m   [0;1mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('35 - 39', '2009-12-29 15:47:53', 150, 1, '2009-12-29 15:47:53')[0m
+  [4;35;1mChoice Create (0.4ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('40 - 44', '2009-12-29 15:47:53', 78, 1, '2009-12-29 15:47:53')[0m
+  [4;36;1mChoice Create (0.3ms)[0m   [0;1mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('45 - 49', '2009-12-29 15:47:53', 32, 1, '2009-12-29 15:47:53')[0m
+  [4;35;1mChoice Create (0.3ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('50 - 54', '2009-12-29 15:47:53', 18, 1, '2009-12-29 15:47:53')[0m
+  [4;36;1mChoice Create (0.3ms)[0m   [0;1mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('55 - 59', '2009-12-29 15:47:53', 9, 1, '2009-12-29 15:47:53')[0m
+  [4;35;1mChoice Create (0.3ms)[0m   [0mINSERT INTO "choices" ("name", "updated_at", "votes", "poll_id", "created_at") VALUES('60 or over', '2009-12-29 15:47:53', 9, 1, '2009-12-29 15:47:53')[0m
+  [4;36;1mPoll Load (0.2ms)[0m   [0;1mSELECT "polls".id FROM "polls" WHERE ("polls"."url" = 'http://news.ycombinator.com/item?id=517039' AND "polls".id <> 1) LIMIT 1[0m
+  [4;35;1mPoll Update (0.3ms)[0m   [0mUPDATE "polls" SET "score" = 117, "updated_at" = '2009-12-29 15:47:54' WHERE "id" = 1[0m
+Redirected to http://hackerpolls.local/polls/1
+Completed in 2405ms (DB: 7) | 302 Found [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#show (for 127.0.0.1 at 2009-12-29 10:47:54) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPoll Load (0.2ms)[0m   [0;1mSELECT * FROM "polls" WHERE ("polls"."id" = 1) [0m
+  [4;35;1mChoice Load (0.9ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendering template within layouts/application
+Rendering polls/show
+Rendered polls/_summary (10.9ms)
+Completed in 25ms (View: 13, DB: 1) | 200 OK [http://hackerpolls.local/polls/1]
+
+
+Processing PollsController#index (for 127.0.0.1 at 2009-12-29 10:48:15) [GET]
+  [4;36;1mPoll Load (0.9ms)[0m   [0;1mSELECT * FROM "polls" ORDER BY score DESC[0m
+Rendering template within layouts/application
+Rendering polls/index
+  [4;35;1mChoice Load (1.2ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".poll_id = 1) [0m
+Rendered polls/_summary (18.4ms)
+Completed in 28ms (View: 22, DB: 2) | 200 OK [http://hackerpolls.local/]
