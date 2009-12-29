@@ -1,20 +1,20 @@
 <%= render :partial => 'summary', :locals => { :poll => @poll } %>
-<%= link_to 'Horizontal', @poll %> 
-<%= link_to 'Vertical', {:action => 'show', :id => @poll.id, :chart => 'vertical' }%>
+<%= link_to 'Horizontal', {:action => 'show', :id => @poll.id, :chart => 'horizontal' }%>
+<%= link_to 'Vertical', @poll %> 
 <div id="chart-container" style="width: 800px; height: 450px"></div>
 <script>
 $(document).ready(function() {
 	var total_votes = <%= @results.sum %>;
-	var vertical = <%= (params[:chart]=='vertical') || false %>;
+	var horizontal = <%= (params[:chart]=='horizontal') || false %>;
 	var angle = -45;
-	if(vertical) {
+	if(horizontal) {
 		angle = 0;
 	}
 	var chart1 = new Highcharts.Chart({
     chart: {
 		renderTo: 'chart-container',
       		defaultSeriesType: 'column',
-			inverted: vertical,
+			inverted: horizontal,
 			margin: [50, 50, 100, 150]
         },
         title: { text: "<%= @poll.title %>" },
