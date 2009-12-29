@@ -1,4 +1,4 @@
-<%= link_to 'create new poll', new_poll_path %>
+<%= link_to 'add new poll', new_poll_path %>
 
 <% @polls.each do |poll| %>
 	<%= render :partial => 'summary', :locals => { :poll => poll } %>
