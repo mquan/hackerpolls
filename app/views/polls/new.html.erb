@@ -1,8 +1,9 @@
 <h2>New poll</h2>
-<h4 style="font-sytle: italic">Please paste the URL of the poll here</h4>
+<h4>Please paste the URL of the poll here</h4>
 <% form_for(@poll) do |f| %>
   <%= f.error_messages %>
   <%= f.label :url %>
   <%= f.text_field :url %>
   <%= f.submit 'Create' %>
+  <div style="font-style: italic">example: http://news.ycombinator.com/item?id=978381</div>
 <% end %>
