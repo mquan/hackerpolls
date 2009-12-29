@@ -1,6 +1,8 @@
 <%= render :partial => 'summary', :locals => { :poll => @poll } %>
 <%= link_to 'Horizontal', {:action => 'show', :id => @poll.id, :chart => 'horizontal' }%>
-<%= link_to 'Vertical', @poll %> 
+<%= link_to 'Vertical', @poll %>
+<%= link_to 'Sort', {:action => 'show', :id => @poll.id, :sort => true } %>
+
 <div id="chart-container" style="width: 800px; height: 450px"></div>
 <script>
 $(document).ready(function() {

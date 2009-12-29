@@ -5,6 +5,7 @@ class PollsController < ApplicationController
 
   def show
     @poll = Poll.find(params[:id])
+    @choices = (params[:sort])? @poll.choices.sort! { |a,b| b.votes <=> a.votes } : @poll.choices
     @categories = @poll.choices.map(&:name)
     @results = @poll.choices.map(&:votes)
   end
