@@ -19,6 +19,10 @@ class Poll < ActiveRecord::Base
         agent.get(url)
         page = agent.page
         choices = page.search("div font")
+        if page.at(".title").text.include? 'dead'
+          errors.add(:url, 'error: page is marked as dead')
+        end
+        
         if choices.nil? or choices.size == 0
           errors.add(:url, 'error: not a valid Hacker News poll')
         end
